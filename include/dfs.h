@@ -12,18 +12,16 @@
 #include "graph.h"
 #include "list.h"
 
-
 /**
  深度优先搜索
  */
 typedef struct DfsVertex_ {
 
-  void               *data;
+	void *data;
 
-  VertexColor        color;
+	VertexColor color;
 
 } DfsVertex;
-
 
 /**
  在 graph 指定的图执行深度优先搜索 - O(V+E) V是图中顶点的个数，E是边的个数
@@ -32,6 +30,6 @@ typedef struct DfsVertex_ {
  @param ordered 顶点链表
  @return 成功返回0；否则返回-1
  */
-int dfs(Graph *graph, List *ordered);
+int dfs(Graph * graph, List * ordered);
 
 #endif /* DFS_H */

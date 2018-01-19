@@ -15,19 +15,22 @@
 
 static int compare_str(const void *str1, const void *str2)
 {
-  int       retval;
+	int retval;
 
-  /// 比较两个字符
-  if ((retval = strcmp((const char *)str1, (const char *)str2)) > 0) return 1;
-  if (retval < 0) return -1;
-  return 0;
+	/// 比较两个字符
+	if ((retval = strcmp((const char *)str1, (const char *)str2)) > 0)
+		return 1;
+	if (retval < 0)
+		return -1;
+	return 0;
 }
 
 #pragma mark - Public
 
 int spell(char (*dictionary)[SPELL_SIZE], int size, const char *word)
 {
-  /// 查找单词
-  if (bisearch(dictionary, word, size, SPELL_SIZE, compare_str) >= 0) return 1;
-  return 0;
+	/// 查找单词
+	if (bisearch(dictionary, word, size, SPELL_SIZE, compare_str) >= 0)
+		return 1;
+	return 0;
 }

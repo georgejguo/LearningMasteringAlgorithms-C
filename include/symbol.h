@@ -9,7 +9,6 @@
 #ifndef SYMBOL_H
 #define SYMBOL_H
 
-
 /**
  模拟输入流拆分函数
 
@@ -18,18 +17,16 @@
  */
 static char *next_token(const char *istream)
 {
-  return NULL;
+	return NULL;
 }
-
 
 /**
  符号标记
  */
-typedef struct
-{
-  char               *lexeme;
-  Token              token;
-  
+typedef struct {
+	char *lexeme;
+	Token token;
+
 } Symbol;
 
 #endif /* SYMBOL_H */

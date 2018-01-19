@@ -11,17 +11,14 @@
 
 #include "set.h"
 
-
 /**
  带 key 的集合
  */
-typedef struct KSet_
-{
-  void      *key;
-  Set       set;
-  
-} KSet;
+typedef struct KSet_ {
+	void *key;
+	Set set;
 
+} KSet;
 
 /**
  计算集合覆盖
@@ -31,6 +28,6 @@ typedef struct KSet_
  @param covering 覆盖集合C结果
  @return 找到覆盖返回0; 不可能实现完全覆盖返回1；其他情况返回-1
  */
-int cover(Set *members, Set *subsets, Set *covering);
+int cover(Set * members, Set * subsets, Set * covering);
 
 #endif /* COVER_H */

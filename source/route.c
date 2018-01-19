@@ -14,54 +14,59 @@
 
 #pragma mark - Public
 
-int route(List *paths, PathVertex *destination, PathVertex **next,
-          int(*match)(const void *key1, const void *key2))
+int route(List * paths, PathVertex * destination, PathVertex ** next,
+	  int (*match) (const void *key1, const void *key2))
 {
-  PathVertex    *temp = NULL, *parent = NULL;
-  ListElmt      *element;
-  int           found;
+	PathVertex *temp = NULL, *parent = NULL;
+	ListElmt *element;
+	int found;
 
-  /// 在网关列表中找到目的结点
+	/// 在网关列表中找到目的结点
 
-  found = 0;
+	found = 0;
 
-  for (element = list_head(paths); element != NULL; element = list_next(element)) {
+	for (element = list_head(paths); element != NULL;
+	     element = list_next(element)) {
 
-    if (match(list_data(element), destination)) {
+		if (match(list_data(element), destination)) {
 
-      temp = list_data(element);
-      parent = ((PathVertex *)list_data(element))->parent;
-      found = 1;
-      break;
-    }
-  }
+			temp = list_data(element);
+			parent = ((PathVertex *) list_data(element))->parent;
+			found = 1;
+			break;
+		}
+	}
 
-  /// 如果找不到目标结点返回 -1
-  if (!found) return -1;
+	/// 如果找不到目标结点返回 -1
+	if (!found)
+		return -1;
 
-  /// 计算到目标结点最短路径的下一网关
+	/// 计算到目标结点最短路径的下一网关
 
-  while (parent != NULL) {
+	while (parent != NULL) {
 
-    temp = list_data(element);
-    found = 0;
+		temp = list_data(element);
+		found = 0;
 
-    for (element = list_head(paths); element != NULL; element = list_next(element)) {
+		for (element = list_head(paths); element != NULL;
+		     element = list_next(element)) {
 
-      if (match(list_data(element), parent)) {
+			if (match(list_data(element), parent)) {
 
-        parent = ((PathVertex *)list_data(element))->parent;
-        found = 1;
-        break;
-      }
-    }
+				parent =
+				    ((PathVertex *) list_data(element))->parent;
+				found = 1;
+				break;
+			}
+		}
 
-    /// 结点不可达返回 -1
-    if (!found) return -1;
-    
-  }
+		/// 结点不可达返回 -1
+		if (!found)
+			return -1;
 
-  *next = temp;
-  
-  return 0;
+	}
+
+	*next = temp;
+
+	return 0;
 }

@@ -16,12 +16,10 @@
 /**
  事件
  */
-typedef struct Event_
-{
-  int   type;
-  
-} Event;
+typedef struct Event_ {
+	int type;
 
+} Event;
 
 /**
  将要处理的事件入队 - O(1)
@@ -30,8 +28,7 @@ typedef struct Event_
  @param event 事件
  @return 成功返回 0，否则返回 -1
  */
-int receive_event(Queue *events, const Event *event);
-
+int receive_event(Queue * events, const Event * event);
 
 /**
  事件从队列中出队 - O(1)
@@ -40,6 +37,6 @@ int receive_event(Queue *events, const Event *event);
  @param dispatch 调度函数
  @return 成功返回 0，否则返回 -1
  */
-int process_event(Queue *events, int (*dispatch)(Event *event));
+int process_event(Queue * events, int (*dispatch) (Event * event));
 
 #endif /* EVENTS_H */

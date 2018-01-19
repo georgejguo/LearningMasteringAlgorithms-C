@@ -12,7 +12,6 @@
 #include "bitree.h"
 #include "list.h"
 
-
 /**
  前序方式来遍历表达式树
 
@@ -20,8 +19,7 @@
  @param list 链表
  @return 操作成功返回0；否则返回-1
  */
-int bitree_preorder(const BiTreeNode *node, List *list);
-
+int bitree_preorder(const BiTreeNode * node, List * list);
 
 /**
  中序式来遍历表达式树
@@ -30,8 +28,7 @@ int bitree_preorder(const BiTreeNode *node, List *list);
  @param list 链表
  @return 操作成功返回0；否则返回-1
  */
-int bitree_inorder(const BiTreeNode *node, List *list);
-
+int bitree_inorder(const BiTreeNode * node, List * list);
 
 /**
  后序方式来遍历表达式树
@@ -40,6 +37,6 @@ int bitree_inorder(const BiTreeNode *node, List *list);
  @param list 链表
  @return 操作成功返回0；否则返回-1
  */
-int bitree_postorder(const BiTreeNode *node, List *list);
+int bitree_postorder(const BiTreeNode * node, List * list);
 
 #endif /* TRAVERSE_H */

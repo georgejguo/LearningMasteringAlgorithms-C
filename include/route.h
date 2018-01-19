@@ -12,7 +12,6 @@
 #include "graphalg.h"
 #include "list.h"
 
-
 /**
  计算路由下一个结点
 
@@ -22,7 +21,7 @@
  @param match 函数指针，用于判断两个成员是否相匹配（等于返回 1，否则返回 0）
  @return 计算成功返回0；否则，返回-1
  */
-int route(List *paths, PathVertex *destination, PathVertex **next,
-          int(*match)(const void *key1, const void *key2));
+int route(List * paths, PathVertex * destination, PathVertex ** next,
+	  int (*match) (const void *key1, const void *key2));
 
 #endif /* ROUTE_H */

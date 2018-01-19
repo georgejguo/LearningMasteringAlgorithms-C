@@ -11,25 +11,22 @@
 
 #include <stdlib.h>
 
-
 /**
  开地址哈希表
  */
-typedef struct OHTbl_
-{
-  int     positions;
-  void    *vacated;
-  
-  int     (*h1)(const void *key);
-  int     (*h2)(const void *key);
-  int     (*match)(const void *key1, const void *key2);
-  void    (*destroy)(void *data);
-  
-  int     size;
-  void    **table;
-  
-} OHTbl;
+typedef struct OHTbl_ {
+	int positions;
+	void *vacated;
 
+	int (*h1) (const void *key);
+	int (*h2) (const void *key);
+	int (*match) (const void *key1, const void *key2);
+	void (*destroy) (void *data);
+
+	int size;
+	void **table;
+
+} OHTbl;
 
 /**
   初始化 htbl 指定的开地址哈希表 - O(m)，m 是哈希表中槽位的个数
@@ -42,20 +39,18 @@ typedef struct OHTbl_
  @param destroy 成员析构函数（free...）
  @return 初始化成功，返回0；否则返回-1
  */
-int ohtbl_init(OHTbl *htbl, int positions,
-               int (*h1)(const void *key),
-               int (*h2)(const void *key),
-               int (*match)(const void *key1, const void *key2),
-               void (*destroy)(void *data));
-
+int ohtbl_init(OHTbl * htbl, int positions,
+	       int (*h1) (const void *key),
+	       int (*h2) (const void *key),
+	       int (*match) (const void *key1, const void *key2),
+	       void (*destroy) (void *data));
 
 /**
  销毁 htbl 指定的开地址哈希表 - O(m)
  
  @param htbl 哈希表
  */
-void ohtbl_destroy(OHTbl *htbl);
-
+void ohtbl_destroy(OHTbl * htbl);
 
 /**
  向 htbl 指定的开地址哈希表中插入一个元素 - O(1)
@@ -64,8 +59,7 @@ void ohtbl_destroy(OHTbl *htbl);
  @param data 待插入元素
  @return 插入成功，返回0；已包含此元素，返回1；否则，返回-1
  */
-int ohtbl_insert(OHTbl *htbl, const void *data);
-
+int ohtbl_insert(OHTbl * htbl, const void *data);
 
 /**
  从 htbl 指定的开地址哈希表中删除与 data 匹配的元素 - O(1)
@@ -74,8 +68,7 @@ int ohtbl_insert(OHTbl *htbl, const void *data);
  @param data 待删除元素
  @return 删除成功，返回0；否则，返回-1
  */
-int ohtbl_remove(OHTbl *htbl, void **data);
-
+int ohtbl_remove(OHTbl * htbl, void **data);
 
 /**
  判断由参数 htbl 指定的开地址哈希表中查找是否有与 data 相匹配的元素 - O(1)
@@ -84,8 +77,7 @@ int ohtbl_remove(OHTbl *htbl, void **data);
  @param data 待查找元素
  @return 找到元素，返回0；否则，返回-1
  */
-int ohtbl_lookup(const OHTbl *htbl, void **data);
-
+int ohtbl_lookup(const OHTbl * htbl, void **data);
 
 /**
  返回由参数 htbl 指定的开地址哈希表中元素的个数 - O(1)

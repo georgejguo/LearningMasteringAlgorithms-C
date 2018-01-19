@@ -9,7 +9,6 @@
 #ifndef TRANSFER_H
 #define TRANSFER_H
 
-
 /**
  首先压缩数据，然后调用标准套接字函数 send
 
@@ -20,7 +19,6 @@
  @return 成功返回0；否则返回-1
  */
 int send_comp(int s, const unsigned char *data, int size, int flags);
-
 
 /**
  使用标准套接字函数 recv 接收从 send_comp 发送过来的数据

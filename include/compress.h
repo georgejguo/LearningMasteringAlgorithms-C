@@ -11,29 +11,24 @@
 
 #include "bitree.h"
 
-
 /**
  霍夫曼树结点
  */
-typedef struct HuffNode_
-{
-  unsigned char   symbol;
-  int             freq;
+typedef struct HuffNode_ {
+	unsigned char symbol;
+	int freq;
 
 } HuffNode;
-
 
 /**
  霍夫曼编码表
  */
-typedef struct HuffCode_
-{
-  unsigned char     used;
-  unsigned short    code;
-  unsigned char     size;
+typedef struct HuffCode_ {
+	unsigned char used;
+	unsigned short code;
+	unsigned char size;
 
 } HuffCode;
-
 
 /**
  用霍夫曼编码的方法压缩缓冲区 original 中的数据 - O(n) n 是原始数据中符号的个数
@@ -43,8 +38,8 @@ typedef struct HuffCode_
  @param size 缓冲区包含字节
  @return 压缩数据成功返回压缩后数据的字节数；否则，返回-1
  */
-int huffman_compress(const unsigned char *original, unsigned char **compressed, int size);
-
+int huffman_compress(const unsigned char *original, unsigned char **compressed,
+		     int size);
 
 /**
  用霍夫曼编码的方法解压缩缓冲区 compressed 中的数据 - O(n) n 是原始数据中符号的个数
@@ -53,8 +48,8 @@ int huffman_compress(const unsigned char *original, unsigned char **compressed, 
  @param original 恢复后数据
  @return 解压缩数据成功返回恢复后数据的字节数；否则，返回-1
  */
-int huffman_uncompress(const unsigned char *compressed, unsigned char **original);
-
+int huffman_uncompress(const unsigned char *compressed,
+		       unsigned char **original);
 
 /// 类型长度
 #define     LZ77_TYPE_BITS        1
@@ -77,7 +72,6 @@ int huffman_uncompress(const unsigned char *compressed, unsigned char **original
 #define     LZ77_SYMBOL_BITS    (LZ77_TYPE_BITS+LZ77_NEXT_BITS)
 #define LZ77_SYNBOL_BITS (LZ77_TYPE_BITS+LZ77_NEXT_BITS)
 
-
 /**
  用 LZ77 算法压缩缓冲区 original 中的数据 - O(n) n 是原始数据中符号的个数
 
@@ -86,8 +80,8 @@ int huffman_uncompress(const unsigned char *compressed, unsigned char **original
  @param size 缓冲区包含字节
  @return 压缩数据成功返回压缩后数据的字节数；否则，返回-1
  */
-int lz77_compress(const unsigned char *original, unsigned char **compressed, int size);
-
+int lz77_compress(const unsigned char *original, unsigned char **compressed,
+		  int size);
 
 /**
  用 LZ77 算法解压缩缓冲区 compressed 中的数据 - O(n) n 是原始数据中符号的个数

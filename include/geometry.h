@@ -27,22 +27,18 @@
 /**
  直角坐标系中的点
  */
-typedef struct Point_
-{
-  double      x, y, z;
+typedef struct Point_ {
+	double x, y, z;
 
 } Point;
-
 
 /**
  球坐标系中的点
  */
-typedef struct SPoint_
-{
-  double      rho, theta, phi;
+typedef struct SPoint_ {
+	double rho, theta, phi;
 
 } SPoint;
-
 
 /**
  检测两条线段是否相交 - O(1)
@@ -55,7 +51,6 @@ typedef struct SPoint_
  */
 int lint(Point p1, Point p2, Point p3, Point p4);
 
-
 /**
  函数计算出由 P 所指定的点集的凸包 - O(nh) n表示点集中总的元素个数，h表示凸包中点的个数
 
@@ -63,8 +58,7 @@ int lint(Point p1, Point p2, Point p3, Point p4);
  @param polygon 计算结果链表
  @return 成功计算出凸包返回0；否则返回-1
  */
-int cvxhull(const List *P, List *polygon);
-
+int cvxhull(const List * P, List * polygon);
 
 /**
  计算球面上的点 P1 和 P2 之间的弧长 - O(1)

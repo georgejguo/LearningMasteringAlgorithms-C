@@ -9,13 +9,11 @@
 #ifndef PARCEL_H
 #define PARCEL_H
 
-
 /**
  包裹
  */
-typedef struct Parcel_
-{
-  int       priority;
+typedef struct Parcel_ {
+	int priority;
 
 } Parcel;
 

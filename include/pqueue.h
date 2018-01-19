@@ -16,7 +16,6 @@
  */
 typedef Heap PQueue;
 
-
 /**
  初始化由参数 pqueue 所指定优先队列 - O(1)
 
@@ -26,14 +25,12 @@ typedef Heap PQueue;
  */
 #define pqueue_init heap_init
 
-
 /**
  销毁由参数 pqueue 所指定优先队列 - O(n)
 
  @param pqueue 优先队列
  */
 #define pqueue_destroy heap_destroy
-
 
 /**
  在 pqueue 所指定的优先队列中插入一个元素 - O(lg n)
@@ -44,7 +41,6 @@ typedef Heap PQueue;
  */
 #define pqueue_insert heap_insert
 
-
 /**
  从优先队列 pqueue 中提取优先队列顶部的元素 - O(lg n)
 
@@ -54,7 +50,6 @@ typedef Heap PQueue;
  */
 #define pqueue_extract heap_extract
 
-
 /**
  获取优先队列 pqueue 中优先级最高元素 - O(1)
 
@@ -62,7 +57,6 @@ typedef Heap PQueue;
  @return 优先级最高的元素；如果队列为空，那么返回NULL
  */
 #define pqueue_peek(pqueue) ((pqueue)->tree == NULL ? NULL : (pqueue)->tree[0])
-
 
 /**
  优先队列中的元素个数 - O(1)

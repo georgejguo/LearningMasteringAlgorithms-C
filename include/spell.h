@@ -12,7 +12,6 @@
 /// 设置单词最大长度
 #define     SPELL_SIZE      31
 
-
 /**
  单词拼写检查 - O(lgn)
 

@@ -11,8 +11,7 @@
 
 #include "chtbl.h"
 
-typedef enum Token_ {lexit, error, digit, other} Token;
-
+typedef enum Token_ { lexit, error, digit, other } Token;
 
 /**
  根据输入流生成符号表
@@ -21,6 +20,6 @@ typedef enum Token_ {lexit, error, digit, other} Token;
  @param symtbl 符号表
  @return 类型
  */
-Token lex(const char *istream, CHTbl *symtbl);
+Token lex(const char *istream, CHTbl * symtbl);
 
 #endif /* LEX_H */

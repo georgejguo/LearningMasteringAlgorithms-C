@@ -12,7 +12,6 @@
 #include "parcel.h"
 #include "pqueue.h"
 
-
 /**
  在优先队列 parcels 获取下一个包裹
 
@@ -20,8 +19,7 @@
  @param parcel 包裹
  @return 成功返回0；否则返回-1
  */
-int get_parcel(PQueue *parcels, Parcel *parcel);
-
+int get_parcel(PQueue * parcels, Parcel * parcel);
 
 /**
  将一个包裹 parcel 插入一个优先队列 parcels
@@ -30,6 +28,6 @@ int get_parcel(PQueue *parcels, Parcel *parcel);
  @param parcel 包裹
  @return 成功，返回0；否则返回-1
  */
-int put_parcel(PQueue *parcels, const Parcel *parcel);
+int put_parcel(PQueue * parcels, const Parcel * parcel);
 
 #endif /* PARCELS_H */

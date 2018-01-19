@@ -9,7 +9,6 @@
 #ifndef SEARCH_H
 #define SEARCH_H
 
-
 /**
  二分查找 - O(lg n)
 
@@ -21,6 +20,6 @@
  @return 查找成功返回目标的索引值；否则，返回-1
  */
 int bisearch(void *sorted, const void *target, int size, int esize,
-             int(*compare)(const void *key1, const void *key2));
+	     int (*compare) (const void *key1, const void *key2));
 
 #endif /* SEARCH_H */

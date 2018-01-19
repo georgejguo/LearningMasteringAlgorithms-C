@@ -9,7 +9,6 @@
 #ifndef SORT_H
 #define SORT_H
 
-
 /**
  利用插入排序将数组 data 中的元素进行排序 - O(n^2)
 
@@ -20,8 +19,7 @@
  @return 成功返回 0；否则返回 -1
  */
 int issort(void *data, int size, int esize,
-           int (*compare)(const void *key1, const void *key2));
-
+	   int (*compare) (const void *key1, const void *key2));
 
 /**
  利用快速排序将数组 data 中的元素进行排序 - O(n lg n)
@@ -35,9 +33,7 @@ int issort(void *data, int size, int esize,
  @return 成功返回 0；否则返回 -1
  */
 int qksort(void *data, int size, int esize, int i, int k,
-           int (*compare)(const void *key1, const void *key2));
-
-
+	   int (*compare) (const void *key1, const void *key2));
 
 /**
  利用快速排序将数组 data 中的元素进行排序简化 - O(n lg n)
@@ -48,8 +44,8 @@ int qksort(void *data, int size, int esize, int i, int k,
  @param compare 函数指针，用于比较两个成员大小（大于返回 1，小于返回 -1，等于返回 0）
  @return 成功返回 0；否则返回 -1
  */
-int qsrt(void *data, int size, int esize, int (*compare)(const void *key1, const void *key2));
-
+int qsrt(void *data, int size, int esize,
+	 int (*compare) (const void *key1, const void *key2));
 
 /**
  利用归并排序将数组 data 中的元素进行排序 - O(n lg n)
@@ -63,7 +59,7 @@ int qsrt(void *data, int size, int esize, int (*compare)(const void *key1, const
  @return 成功返回 0；否则返回 -1
  */
 int mgsort(void *data, int size, int esize, int i, int k,
-           int (*compare)(const void *key1, const void *key2));
+	   int (*compare) (const void *key1, const void *key2));
 
 /**
  利用归并排序将数组 data 中的元素进行排序简化 - O(n lg n)
@@ -74,8 +70,8 @@ int mgsort(void *data, int size, int esize, int i, int k,
  @param compare 函数指针，用于比较两个成员大小（大于返回 1，小于返回 -1，等于返回 0）
  @return 成功返回 0；否则返回 -1
  */
-int mgsrt(void *data, int size, int esize, int (*compare)(const void *key1, const void *key2));
-
+int mgsrt(void *data, int size, int esize,
+	  int (*compare) (const void *key1, const void *key2));
 
 /**
  利用计数排序将数组 data 中的整数进行排序 - O(n+k)
@@ -86,7 +82,6 @@ int mgsrt(void *data, int size, int esize, int (*compare)(const void *key1, cons
  @return 成功返回 0；否则返回 -1
  */
 int ctsort(int *data, int size, int k);
-
 
 /**
  利用基数排序将数组 data 中的整数进行排序 - O(pn+pk)

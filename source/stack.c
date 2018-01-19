@@ -13,16 +13,14 @@
 
 #pragma mark - Public
 
-
-int stack_push(Stack *stack, const void *data)
+int stack_push(Stack * stack, const void *data)
 {
-  /// 将数据压入栈
-  return list_ins_next(stack, NULL, data);
+	/// 将数据压入栈
+	return list_ins_next(stack, NULL, data);
 }
 
-
-int stack_pop(Stack *stack, void **data)
+int stack_pop(Stack * stack, void **data)
 {
-  /// 弹出栈顶元素
-  return list_rem_next(stack, NULL, data);
+	/// 弹出栈顶元素
+	return list_rem_next(stack, NULL, data);
 }

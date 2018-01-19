@@ -14,13 +14,11 @@
 /**
  页
  */
-typedef struct Page_
-{
-  int   number;
-  int   reference;
-  
-} Page;
+typedef struct Page_ {
+	int number;
+	int reference;
 
+} Page;
 
 /**
  第二次机会置换法（时钟算法）LRU
@@ -28,6 +26,6 @@ typedef struct Page_
  @param current 当前元素
  @return 页位置
  */
-int replace_page(CListElmt **current);
+int replace_page(CListElmt ** current);
 
 #endif /* PAGE_H */
