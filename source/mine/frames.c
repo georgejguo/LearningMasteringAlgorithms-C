@@ -28,7 +28,7 @@ int free_frame(List * frames, int frame_number)
 		return -1;
 	}
 
-	data = &frame_number;
+	*data = frame_number; // data = &frame_number;  X
 
 	if (list_ins_next(frames, NULL, (void *)data) != 0) {
 		return -1;
