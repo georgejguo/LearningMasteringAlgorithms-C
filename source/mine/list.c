@@ -35,7 +35,6 @@ int list_ins_next(List * list, ListElmt * element, const void *data)
 		return -1;
 
 	new_element->data = (void *)data;
-
 	if (element == NULL) {
 		if (list->head == NULL)
 			list->tail = new_element;
@@ -43,11 +42,11 @@ int list_ins_next(List * list, ListElmt * element, const void *data)
 		new_element->next = list->head;
 		list->head = new_element;
 	} else {
+		if (element->next == NULL)
+			list->tail = new_element;
+
 		new_element->next = element->next;
 		element->next = new_element;
-
-		if (element->next == NULL)
-			list->tail = element;
 	}
 
 	list->size++;
