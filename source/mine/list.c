@@ -16,7 +16,9 @@ void list_destroy(List * list)
 {
 	void *data;
 
-	while (list->size > 0) {
+	while (list->size) {
+		/*if pass NULL and list->size > 0, list_rem_next alwayes returns
+		   0; list_destroy still makes sense if list->destroy is NULL*/
 		if (list_rem_next(list, NULL, (void **)&data) == 0
 		    && list->destroy != NULL) {
 			list->destroy(data);
@@ -73,16 +75,15 @@ int list_rem_next(List * list, ListElmt * element, void **data)
 		if (element->next == NULL)
 			return -1;
 
-		*data = element->next->next;
+		*data = element->next->data;
 		old_element = element->next;
 		element->next = element->next->next;
 
-		if (element->next = NULL)
+		if (element->next = NULL)	// old_element == list->tail
 			list->tail = element;
 	}
 
 	free(old_element);
-
 	list->size--;
 
 	return 0;
