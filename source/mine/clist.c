@@ -31,8 +31,20 @@ int clist_ins_next(CList * list, CListElmt * element, const void *data)
 {
 	CListElmt *new_element;
 
+	if (element == NULL && list->size != 0)
+		return -1;
+
 	if ((new_element = (CListElmt *) malloc(sizeof(CListElmt))) == NULL)
 		return -1;
+	new_element->data = data;
+
+	if (list->size == 0) {
+		new_element->next = new_element;
+		list->head = new_element;
+	} else {
+		new_element->next = element->next;
+		element->next = new_element;
+	}
 
 	list->size++;
 
@@ -43,8 +55,7 @@ int clist_rem_next(CList * list, CListElmt * element, void **data)
 {
 	CListElmt *old_element;
 
-	/*do not element is NULL*/
-	if (list->size == 0 || element = NULL)
+	if (list->size == 0 || element == NULL)
 		return -1;
 
 	*data = element->next->data;
